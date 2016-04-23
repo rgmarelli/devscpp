@@ -1,4 +1,5 @@
-/* devsCPP - a DEVS C++ library
+/* 
+ * devsCPP - a DEVS C++ library
  * Copyright (c) 2013 Ricardo Guido Marelli
  * 
  * This program is free software: you can redistribute it and/or modify
