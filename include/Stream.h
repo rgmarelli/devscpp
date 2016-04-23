@@ -164,7 +164,7 @@ private:
 	}
 
 	unsigned int tail() {
-		/* Espacio ocupado del ultimo buffer */
+		/* Used space of the last buffer */
 		if( size_ == 0 ) return 0;
 		return (size_ - (v_->size()-1)*CHUNKSIZE);
 	}

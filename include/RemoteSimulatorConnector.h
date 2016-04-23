@@ -106,7 +106,7 @@ public:
 
         MESSAGE_INTERFACE message_interface;
 
-        /* Hacer el protocolo request-response */   
+        /* Execute the request-response protocol */   
  
         std::auto_ptr<RemoteMessage> request( message_interface.recv( peer_ ) );
         if( !request.get() ) {

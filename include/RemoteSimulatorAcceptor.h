@@ -53,7 +53,7 @@ public:
         MESSAGE_INTERFACE message_interface;
         typename MESSAGE_INTERFACE::type_peer* peer = message_interface.accept(acceptor_);
 
-        // Recibir el mensaje de conexion
+        // Receive a connection message
         std::auto_ptr<RemoteMessage> connect_req( message_interface.recv( peer ) );
         if( !connect_req.get() ) {
             return NULL;
@@ -66,7 +66,7 @@ public:
         }
         Log::write(0,"DEVS::RemoteSimulatorAcceptor", "Simulator connected. Model name: %s, properties size: %d", name.c_str(), properties.size());
 
-        // Enviar la respuesta */
+        // Send the reply message */
         RemoteMessage connect_rep( RemoteMessage::TYPE_CONNECTION_REPLY, 0, NULL );
         message_interface.send( peer, connect_rep );    
 

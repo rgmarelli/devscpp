@@ -68,7 +68,7 @@ public:
 
    Event pop() {
        if(empty()) {
-           // No deberia pasar
+           //Shouldn't happen
            Log::write(LOG_CRIT, "DEVS", "EventQueue is NULL (pop)");
            exit(0);
        }
@@ -79,7 +79,7 @@ public:
 
    Event front() {
        if(empty()) {
-           // No deberia pasar
+           //Shouldn't happen
            Log::write(LOG_CRIT, "DEVS", "EventQueue is NULL (front)");
            exit(0);
        }
@@ -111,8 +111,8 @@ private:
             it--;
             count++;
             if( !(it->TN() > event.TN()) ) {
-                /* Inserto el evento despues del primer evento que tiene menor o igual TN.
-                   De este modo eventos con el mismo TN son procesados en el orden de llegada */
+                /* Insert the event after the first event with equal or lower TN.
+                   This ensures that events are processed conforming their order of arrival. */
                 it++;
                 events_.insert(it,event);
                 return;

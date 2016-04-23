@@ -32,12 +32,11 @@ public:
     Port() : empty_(true), type_(0)
     {}
 
-    // Type y Name son definidos por el standard DEVS
-    // Agregamos model_name para asi poder identificar univocamente 
-    // a este objeto en el contexto de un modelo acoplado
+    // Type and Name fields are defined in the DEVS standard.
+    // A field 'model_name' is added to indentify the port object in the context of a coupled model.
     Port(std::string model_name, std::string name, PortType type=1) : empty_(false), type_(type), 
                                                                       name_(name), model_name_(model_name)
-    {
+     {
     }
 
     bool operator<(const Port& port) const {

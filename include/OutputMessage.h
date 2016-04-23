@@ -36,8 +36,8 @@ public:
     {}
 
 
-    /* De un mensaje de salida solo se conoce el puerto de origen 
-       que fue especificado por el modelo */
+    /* For an output message, we only have information about the source port that
+       was specified by the model */
     Port srcPort() const { return port_; }
 }; // OutputMessage
 

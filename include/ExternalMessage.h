@@ -35,13 +35,9 @@ public:
     virtual ~ExternalMessage() 
     {}
 
-    /* De un mensaje de salida solo se conoce el puerto de destino. 
-       Dicho puerto, en el caso de un modelo acoplado, 
-       es especificado por la funcion de traduccion correspondiente.
-
-       El cuerpo de origen es siempre desconocido. 
-     */
-    Port dstPort() const { return port_; }
+    /* For an output message, we only have information about the destiny port which
+       for coupled models is specified by the output translation function. */
+     Port dstPort() const { return port_; }
 }; // ExternalMessage
 
 }; // DEVS

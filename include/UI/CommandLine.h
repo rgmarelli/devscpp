@@ -67,9 +67,9 @@ protected:
 
     static char* cmd_generator (const char *text, int state) {
         /* 
-           El código para este método esta basado en el ejemplo provisto en: GNU Readline Library documentation
+           Coded based in the example that can be found in the GNU Readline Library documentation
            http://cnswww.cns.cwru.edu/php/chet/readline/readline.html
-           Accedido: 18/08/2014
+           Accessed: 18/08/2014
         */
 
         static int list_index=0, len=0;

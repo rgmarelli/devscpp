@@ -90,7 +90,7 @@ public:
 protected:
     RemoteMessage* doProtocol(RemoteMessage* m) {
         MESSAGE_INTERFACE message_interface;
-        // Enviar la solicitud al simulador remoto
+        //Send the request to the remote simulator
         if( message_interface.send( peer_, *m ) == -1 ) {
             Log::write(LOG_ERR,"DEVS::RemoteSimulator", "[%s] Send error", model_name().c_str());
             return NULL;

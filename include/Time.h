@@ -69,10 +69,10 @@ public:
         float iptr=0; 
         float d = modff(x, &iptr);
 
-        // Multiplicar parte decimal de X
+        //Multiply the fractional part of X
         Time r( (d*to_nano_sec)*this->sec() + d*(float)this->nsec() );
 
-        // Multiplicar parte entera de X
+        //Multiply the integer part of X
         for( unsigned int i=0; i < iptr; i++ ) {
             r = *this + r;
         }

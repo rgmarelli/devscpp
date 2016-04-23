@@ -25,8 +25,7 @@
 namespace DEVS {
 
 /*
- * Simulator es la interfaz basica de todo simulador y el principio que permite
-   abstraer del lugar donde se ejecuta el modelo.
+ * The basic Simulator interface.
  */
 
 class Simulator
