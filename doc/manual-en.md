@@ -1,4 +1,4 @@
-# DEVS-TOSSIM
+# devsCPP
 
 Copyright (c) 2015 Ricardo Guido Marelli
 All rights reserved.
