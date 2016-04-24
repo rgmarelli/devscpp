@@ -81,7 +81,7 @@ Finally, when constructing an atomic model, you must register its input and outp
 
 ## Creating new DEVS coupled models
 
-The class CoupledModel is used to generate new coupled models. This class can be used directly or derived to define the coupled model in the constructor or to overload the *output translation function*. The definition of a coupled model implies:
+The class *CoupledModel* is used to generate new coupled models. This class can be used directly or derived to define the coupled model in the constructor or to overload the *output translation function*. The definition of a coupled model implies:
   
 * __Registering input and output ports__
 
