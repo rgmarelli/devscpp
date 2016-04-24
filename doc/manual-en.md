@@ -147,7 +147,7 @@ Once all simulators are registered, you can run 20 simulation steps:
         coupled_simulator.simulate();
     }
 
-Alternatively, the classes CoupledCompositeModel and CoupledCompositeSimulator can be used to generate an hierarchy of simulators:
+Alternatively, the classes *CoupledCompositeModel* and *CoupledCompositeSimulator* can be used to generate an hierarchy of simulators:
 
     DEVS::CoupledCompositeModel coupled( "aCoupledModel" );
      
@@ -157,8 +157,8 @@ Alternatively, the classes CoupledCompositeModel and CoupledCompositeSimulator c
     coupled.add( model1 );
     coupled.add( model2 );
 
-Note that when using CoupledCompositeModel, the child model instances are directly registered with the coupled model:
+Note that when using *CoupledCompositeModel*, the child model instances are directly registered with the coupled model:
 
     DEVS::CoupledCompositeSimulator coupled_simulator(&coupled);
 
-On instantiation, CoupledCompositeSimulator will instantiate all the simulators for the child models.
+On instantiation, *CoupledCompositeSimulator* will instantiate all the simulators for the child models.
