@@ -123,6 +123,8 @@ The class CoupledModel is used to generate new coupled models. This class can be
 
 To run a simulation you must instantiate the corresponding simulators. Every DEVS model must be associated to a simulator that will be in charge of executing that model. For example:
 
+The following source code will instantiate two atomic models, a coupled model, and their simulators:
+
     SimpleAtomic atomic_model1( "model1" );
     SimpleAtomic atomic_model2( "model2" );
     DEVS::CoupledModel coupled( "aCoupledModel" );
@@ -131,19 +133,16 @@ To run a simulation you must instantiate the corresponding simulators. Every DEV
     DEVS::AtomicSimulator simulator2( &atomic_model2);
     DEVS::CoupledSimulator coupled_simulator( &coupled );
 
-The preceding source code will instantiate two atomic models, a coupled model, and their simulators.
+Simulators of the child models (model1, model2) must be registered with the simulator of the coupled model (aCoupledModel):
 
     coupled_simulator.addSimulator( &simulator1 );
     coupled_simulator.addSimulator( &simulator2 );
 
-Simulators of the child models (model1, model2) must be registered with the simulator of the coupled model (aCoupledModel).
+Once all simulators are registered, you can run 20 simulation steps:
 
     for( int i=0; i < 20; i++ ) {
         coupled_simulator.simulate();
     }
-
-Once all simulators are registered, you can run 20 simulation steps.
-
 
 Alternatively, the classes CoupledCompositeModel and CoupledCompositeSimulator can be used to generate an hierarchy of simulators:
 
@@ -155,7 +154,7 @@ Alternatively, the classes CoupledCompositeModel and CoupledCompositeSimulator c
     coupled.add( model1 );
     coupled.add( model2 );
 
-Note that when using CoupledCompositeModel, the child model instances are directly registered with the coupled model.
+Note that when using CoupledCompositeModel, the child model instances are directly registered with the coupled model:
 
     DEVS::CoupledCompositeSimulator coupled_simulator(&coupled);
 
