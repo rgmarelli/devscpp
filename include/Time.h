@@ -23,7 +23,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-
+#include <stdio.h>
 namespace DEVS {
 
 class Time
@@ -85,11 +85,17 @@ public:
     }
 
     Time operator - ( const Time& t ) const {
+        if( t > *this ) {
+            Time r = t - *this;
+            r.time_.tv_sec *= -1;
+            r.time_.tv_nsec *= -1;
+            return r;
+        }
+
         if( this->nsec() >= t.nsec() ) {
 		    Time r( this->nsec() - t.nsec() );
 		    r.time_.tv_sec += (this->sec() - t.sec());
-            return r;
-        
+            return r;        
 	    }
 	    Time r( (this->nsec() - t.nsec()) + to_nano_sec );        
         r.time_.tv_sec += (this->sec() - t.sec() - 1);
