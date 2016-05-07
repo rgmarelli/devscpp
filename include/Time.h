@@ -52,6 +52,11 @@ public:
         if( (this->sec() == t.sec()) && (this->nsec() > t.nsec() ) ) return true; 
         return false;
     }
+
+    bool operator < ( const Time& t ) const {
+        if( t > *this ) return true;
+        return false;
+    }
     
     bool operator == ( const Time& t ) const {
         return this->sec() == t.sec() &&
@@ -109,6 +114,7 @@ public:
     }
 
     bool static sleep_interval( const Time &interval ) {
+        if( interval < Time(0) ) return true;
       	return nanosleep( &interval.time_, NULL ) == 0;
     }
 
