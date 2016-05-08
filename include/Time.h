@@ -23,6 +23,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
+#include <stdlib.h>
 
 namespace DEVS {
 
@@ -72,8 +73,8 @@ public:
     Time operator * ( const float x ) const {
 
         if( x < 0 ) {
-            Time r = (*this)*(-x);
-            return Time(0) - r;
+            // bad
+            exit(1);
         }
 
         float iptr=0; 
@@ -91,10 +92,8 @@ public:
 
     Time operator - ( const Time& t ) const {
         if( t > *this ) {
-            Time r = t - *this;
-            r.time_.tv_sec *= -1;
-            r.time_.tv_nsec *= -1;
-            return r;
+            //This is bad, it has no sense to handle negative times
+            exit(1);
         }
 
         if( this->nsec() >= t.nsec() ) {
@@ -125,7 +124,6 @@ public:
     }
 
     bool static sleep_interval( const Time &interval ) {
-        if( interval < Time(0) ) return true;
       	return nanosleep( &interval.time_, NULL ) == 0;
     }
 
