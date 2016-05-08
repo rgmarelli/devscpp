@@ -135,10 +135,14 @@ public:
                 }
                 else {
                     DEVS::Time t(0);
-                    if( this->compensate_time_ ) {
-                        t = (nexttn - tn - diff)*time_;
-                        if( t < 0 ) {
-                            Log::write(LOG_WARNING,"DEVS::Simulation","Missing deadline (%s)",t.to_string().c_str());
+                    if( this->compensate_time_ ) {                       
+                        t = (nexttn - tn);
+                        if( diff > t ) {
+                            t=0;
+                            Log::write(LOG_WARNING,"DEVS::Simulation","Missing deadline");
+                        }
+                        else {
+                            t = (t - diff)*time_;
                         }
                     }
                     else {
