@@ -23,7 +23,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-#include <stdio.h>
+
 namespace DEVS {
 
 class Time
@@ -70,6 +70,11 @@ public:
     }
 
     Time operator * ( const float x ) const {
+
+        if( x < 0 ) {
+            Time r = (*this)*(-x);
+            return Time(0) - r;
+        }
 
         float iptr=0; 
         float d = modff(x, &iptr);
